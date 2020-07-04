@@ -10,19 +10,23 @@
     </resultMap>
 
     <select id="selectById" resultType="com.cp.shardingspheresubdatabasetable.entity.User">
-        select * from users where id = #{id}
+        select * from users where id = #{id} and region = #{region}
+    </select>
+
+    <select id="selectAll" resultType="com.cp.shardingspheresubdatabasetable.entity.User">
+        select * from users where  region = #{region}
     </select>
 
     <insert id="inserts" parameterType="com.cp.shardingspheresubdatabasetable.entity.User">
-    insert into users (id, name, age)
+    insert into users (id, name, age,region)
     values (
-    #{id}, #{name},#{age}
+    #{id}, #{name},#{age},#{region}
       )
     </insert>
 
 
-    <delete id="deleteById" parameterType="long">
-        delete from users where id=#{id}
-    </delete>
+<!--    <delete id="deleteById" parameterType="long">-->
+<!--        delete from users where id=#{id}-->
+<!--    </delete>-->
 
 </mapper>

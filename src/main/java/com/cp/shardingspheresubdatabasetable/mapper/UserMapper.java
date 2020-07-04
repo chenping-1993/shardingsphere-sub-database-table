@@ -3,6 +3,8 @@ package com.cp.shardingspheresubdatabasetable.mapper;
 import com.cp.shardingspheresubdatabasetable.entity.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * @description
  * @author: chenping
@@ -20,6 +22,8 @@ public interface UserMapper {
     /**
      * 获取用户
      */
-    User selectById(@Param(value = "id") Long id);
+    User selectById(@Param(value = "id") Long id,@Param(value = "region") Integer region);
+
+    List<User> selectAll(@Param(value = "region") Integer region);
 
 }

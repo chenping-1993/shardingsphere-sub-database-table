@@ -27,16 +27,17 @@ spring:
           database-strategy:
             inline:
               # 配置根据哪个字段选择数据库
-              sharding-column: id
+              sharding-column: region
               # 配置选择哪个数据库的规则
-              algorithm-expression: db$->{id % 2}
+              algorithm-expression: db$->{region % 2}
 
           table-strategy:
             inline:
               # 配置根据哪个字段选择表
-              sharding-column: id
+              sharding-column: region
               # 配置选择哪个表的规则
-              algorithm-expression: users_$->{(Integer)(id / 2) % 4}
+              algorithm-expression: users_$->{(Integer)(region / 2) % 4}
+      default-data-source-name: db0 #不分表默认存储的数据库
 
 mybatis:
   mapper-locations: classpath:mybatis/*.xml

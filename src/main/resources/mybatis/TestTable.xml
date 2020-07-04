@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cp.shardingspheresubdatabasetable.mapper.TestTableMapper">
+
+    <select id="selectById" resultType="com.cp.shardingspheresubdatabasetable.entity.TestTable">
+        select * from test where id = #{id}
+    </select>
+
+    <select id="selectAll" resultType="com.cp.shardingspheresubdatabasetable.entity.TestTable">
+        select * from test
+    </select>
+
+    <insert id="inserts" parameterType="com.cp.shardingspheresubdatabasetable.entity.TestTable">
+    insert into test (username, password)
+    values (
+    #{username},#{password}
+      )
+    </insert>
+
+
+</mapper>
